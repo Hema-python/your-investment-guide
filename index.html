@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investment Guide for India</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.5;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.2em;
+            margin-bottom: 8px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .section {
+            padding: 30px;
+        }
+
+        .section-title {
+            font-size: 1.8em;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            text-align: center;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: bold;
+        }
+
+        .investment-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 40px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .investment-table th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 1.1em;
+        }
+
+        .investment-table th:first-child {
+            width: 35%;
+        }
+
+        .investment-table td {
+            padding: 15px;
+            border-bottom: 1px solid #e0e0e0;
+            vertical-align: top;
+        }
+
+        .investment-table tbody tr:nth-child(even) {
+            background: linear-gradient(90deg, #f8f9ff 0%, #f0f8ff 100%);
+        }
+
+        .investment-table tbody tr:nth-child(odd) {
+            background: linear-gradient(90deg, #fff5f5 0%, #fef7ff 100%);
+        }
+
+        .investment-table tbody tr:hover {
+            background: linear-gradient(90deg, #e3f2fd 0%, #f3e5f5 100%);
+            transform: scale(1.01);
+            transition: all 0.2s ease;
+        }
+
+        .investment-type {
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 1em;
+        }
+
+        .investment-explanation {
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .etf-table {
+            width: 100%;
+            border-collapse: collapse;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .etf-table th {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 1.1em;
+        }
+
+        .etf-table th:first-child {
+            width: 40%;
+        }
+
+        .etf-table td {
+            padding: 15px;
+            border-bottom: 1px solid #e0e0e0;
+            vertical-align: top;
+        }
+
+        .etf-table tbody tr:nth-child(even) {
+            background: linear-gradient(90deg, #fff5f5 0%, #ffeaa7 100%);
+        }
+
+        .etf-table tbody tr:nth-child(odd) {
+            background: linear-gradient(90deg, #fdcb6e 0%, #e17055 100%);
+            color: white;
+        }
+
+        .etf-table tbody tr:nth-child(odd) .etf-name {
+            color: white;
+            font-weight: bold;
+        }
+
+        .etf-table tbody tr:nth-child(odd) .etf-explanation {
+            color: #f8f8f8;
+        }
+
+        .etf-table tbody tr:hover {
+            background: linear-gradient(90deg, #74b9ff 0%, #0984e3 100%);
+            color: white;
+            transform: scale(1.01);
+            transition: all 0.2s ease;
+        }
+
+        .etf-table tbody tr:hover .etf-name,
+        .etf-table tbody tr:hover .etf-explanation {
+            color: white;
+        }
+
+        .etf-name {
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 1em;
+        }
+
+        .etf-explanation {
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .highlight {
+            background: rgba(255, 193, 7, 0.3);
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header h1 {
+                font-size: 1.8em;
+            }
+
+            .header p {
+                font-size: 1em;
+            }
+
+            .section {
+                padding: 20px;
+            }
+
+            .investment-table th,
+            .investment-table td,
+            .etf-table th,
+            .etf-table td {
+                padding: 10px;
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div style="background: rgba(255, 255, 255, 0.9); padding: 15px; text-align: center; color: #666; font-size: 0.9em; border-bottom: 2px solid #e0e0e0;">
+            © 2025 Kannada Scoopz | For educational purposes only
+        </div>
+        <div class="header">
+            <h1>💰 Investment Guide</h1>
+            <p>Different Types of Investments in India</p>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">📊 Investment Options</h2>
+            <table class="investment-table">
+                <thead>
+                    <tr>
+                        <th>Investment Type</th>
+                        <th>Explanation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="investment-type">Stocks (Equity)</td>
+                        <td class="investment-explanation">Buying ownership in a company. You benefit if the stock price rises or the company pays dividends.</td>
+                    </tr>
+                    <tr>
+                        <td class="investment-type">Bonds</td>
+                        <td class="investment-explanation">Debt instruments issued by companies/government. You lend money and earn fixed interest, with lower risk than stocks.</td>
+                    </tr>
+                    <tr>
+                        <td class="investment-type">Mutual Funds</td>
+                        <td class="investment-explanation">Pooled money from investors managed by professionals. Invests in stocks, bonds, or hybrid portfolios.</td>
+                    </tr>
+                    <tr>
+                        <td class="investment-type">Index Funds</td>
+                        <td class="investment-explanation">Mutual funds that passively track a market index (e.g., <span class="highlight">Nifty 50, Sensex</span>). Lower fees, market-average returns.</td>
+                    </tr>
+                    <tr>
+                        <td class="investment-type">ETFs</td>
+                        <td class="investment-explanation">Like index funds but trade like stocks on the exchange. Can track equity indices, gold, bonds, etc.</td>
+                    </tr>
+                    <tr>
+                        <td class="investment-type">Real Estate</td>
+                        <td class="investment-explanation">Investing in land, apartments, commercial properties. Can earn from rent or property value appreciation.</td>
+                    </tr>
+                    <tr>
+                        <td class="investment-type">Cryptocurrency</td>
+                        <td class="investment-explanation">Digital assets like <span class="highlight">Bitcoin, Ethereum</span>. Highly volatile, not regulated as legal tender in India but allowed as assets.</td>
+                    </tr>
+                    <tr>
+                        <td class="investment-type">Options</td>
+                        <td class="investment-explanation">Contracts giving right (not obligation) to buy/sell stock at a set price. Used for hedging or speculation.</td>
+                    </tr>
+                    <tr>
+                        <td class="investment-type">FDs / RDs</td>
+                        <td class="investment-explanation">Fixed Deposits or Recurring Deposits in banks/NBFCs. Safe, fixed interest, low returns.</td>
+                    </tr>
+                    <tr>
+                        <td class="investment-type">PPF / EPF / NPS</td>
+                        <td class="investment-explanation">Government-backed retirement savings schemes. Tax benefits + safe long-term returns.</td>
+                    </tr>
+                    <tr>
+                        <td class="investment-type">Sovereign Gold Bonds</td>
+                        <td class="investment-explanation">Govt. bonds linked to gold price + <span class="highlight">2.5% fixed annual interest</span>. Alternative to physical gold.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2 class="section-title">🎯 Popular ETFs in India</h2>
+            <table class="etf-table">
+                <thead>
+                    <tr>
+                        <th>ETF Name</th>
+                        <th>Explanation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="etf-name">Nifty BeES</td>
+                        <td class="etf-explanation">Tracks the <span class="highlight">Nifty 50 index</span>, giving exposure to India's top 50 companies.</td>
+                    </tr>
+                    <tr>
+                        <td class="etf-name">Bank BeES</td>
+                        <td class="etf-explanation">Tracks the <span class="highlight">Nifty Bank index</span>, exposure to major banking sector companies.</td>
+                    </tr>
+                    <tr>
+                        <td class="etf-name">Junior BeES</td>
+                        <td class="etf-explanation">Tracks <span class="highlight">Nifty Next 50</span>, i.e., companies just below the Nifty 50.</td>
+                    </tr>
+                    <tr>
+                        <td class="etf-name">IT BeES</td>
+                        <td class="etf-explanation">Tracks <span class="highlight">Nifty IT index</span>, exposure to top Indian IT companies (Infosys, TCS, Wipro, etc.).</td>
+                    </tr>
+                    <tr>
+                        <td class="etf-name">Gold BeES</td>
+                        <td class="etf-explanation">ETF that tracks the <span class="highlight">price of gold</span>, alternative to buying physical gold.</td>
+                    </tr>
+
+                    <tr>
+                        <td class="etf-name">PSU Bank BeES</td>
+                        <td class="etf-explanation">Tracks <span class="highlight">Nifty PSU Bank index</span>, investing in public sector banks.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div style="background: rgba(255, 255, 255, 0.9); padding: 15px; text-align: center; color: #666; font-size: 0.9em; border-top: 2px solid #e0e0e0;">
+            © 2025 Kannada Scoopz | For educational purposes only<br>
+            <span style="color: #667eea; font-weight: bold; margin-top: 5px; display: inline-block;">Follow @kannada_scoopz</span>
+        </div>
+    </div>
+</body>
+</html>
